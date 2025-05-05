@@ -12,7 +12,9 @@ const getProductsById=(req,res)=>{
 }
 const postProducts=(req,res)=>{
     const message=productService.addProduct()
-    res.send(`<h1>${message}</h1>`)
+    // res.send(`<h1>${message}</h1>`)
+    const data=req.body;
+    res.json({value:data.productName})
 }
 
 const putProducts=(req,res)=>{

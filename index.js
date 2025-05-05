@@ -4,6 +4,9 @@ const userRoutes=require('./routes/userRoutes')
 const productRoutes=require('./routes/productRoutes')
 const carRoutes=require('./routes/cartRoutes')
 
+app.use(express.static('public'))
+app.use(express.json())
+
 app.use('/users',userRoutes)
 app.use('/products',productRoutes)
 app.use('/cart',carRoutes)
