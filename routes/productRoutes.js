@@ -1,18 +1,15 @@
 const express=require('express')
 const router=express.Router()
+const productController=require('../controllers/productController')
 
-router.get('/',(req,res)=>{
-    res.send('<h1>Fetching all products.</h1>')
-})
+router.get('/',(productController.getProducts))
 
-router.post('/',(req,res)=>{
-    res.send('<h1>Adding a new product</h1>')
-})
+router.post('/',productController.postProducts)
 
-router.get('/:id',(req,res)=>{
-    res.send(`<h1>Fetching product with ID: ${req.params.id}</h1>`)
-})
+router.get('/:id',productController.getProductsById)
 
+router.put('/:id',productController.putProducts)
 
+router.delete('/:id',productController.deleteProducts)
 
 module.exports=router
