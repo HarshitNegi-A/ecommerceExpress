@@ -1,8 +1,10 @@
+const path=require('path')
+
 const productService=require('../service/productService')
 
 const getProducts=(req,res)=>{
     const message=productService.getAllProducts()
-    res.send(`<h1>${message}</h1>`)
+    res.sendFile(path.join(__dirname,"..","view","product.html"))
 }
 const getProductsById=(req,res)=>{
     const message=productService.getProductById(req.params.id)
